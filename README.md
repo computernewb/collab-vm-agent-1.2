@@ -23,4 +23,21 @@ This guide is step-by-step.
 * Click Apply, then click OK.
 * Now you should be able to compile the Agent and the Agent loader.
 
-If you want to compile in debug mode, there should be a button on the top left that says "Release" or "Debug" (located near Locate Windows Debugger). Set it to "Debug" to enable Debug mode in both the collab-vm-agent and the collab-vm-
+If you want to compile in debug mode, there should be a button on the top left that says "Release" or "Debug" (located near Locate Windows Debugger). Set it to "Debug" to enable Debug mode in both the collab-vm-agent and the collab-vm-agent-loader, which will give you a Command Prompt window with details of everything that is occurring.
+
+# Making the loader work on Windows XP SP1 and below
+By default, the Collab VM Agent DLL and Collab VM Agent Loader will only work on Windows XP Service Pack 2 and above. Visual Studio 2015  also only supports compling for Windows XP SP2 and above. However, the Loader will run fine on Windows XP SP1 and below. A special command, however, needs to be ran in order to allow it to run on these operating systems. If you do not plan on running this on Windows XP SP1 or below, I do not recommend doing this.
+
+Minimum version I have tested is Win2000 SP4, but it (should) theoretically work on Windows NT 4, Windows ME, and maybe even 98 and 95 (but don't hold your breath.)
+
+Step by step instructions:
+
+* Open the Command Prompt. Make sure to run it as Administrator.
+* Go to C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin (64-bit) OR C:\Program Files\Microsoft Visual Studio 14.0\VC\bin.
+* Type the following commands in:
+* editbin (path to collab-vm-agent dll).dll /SUBSYSTEM:CONSOLE,4.00 /OSVERSION:4.00
+* editbin (path to collab-vm-agent-loader exe).exe /SUBSYSTEM:CONSOLE,4.00 /OSVERSION:4.00
+
+You will receive a warning (LNK42441) that it is an invalid subsystem number. Ignore it and close the command prompt.
+
+Now your Agent DLL and executable will be ready for Windows XP SP1 and below. 
