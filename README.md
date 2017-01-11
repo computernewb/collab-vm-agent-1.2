@@ -35,9 +35,8 @@ Step by step instructions:
 * Open the Command Prompt. Make sure to run it as Administrator.
 * Go to C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin (64-bit) OR C:\Program Files\Microsoft Visual Studio 14.0\VC\bin.
 * Type the following commands in:
-* editbin (path to collab-vm-agent dll).dll /SUBSYSTEM:CONSOLE,4.00 /OSVERSION:4.00
-* editbin (path to collab-vm-agent-loader exe).exe /SUBSYSTEM:CONSOLE,4.00 /OSVERSION:4.00
+* editbin (path to collab-vm-agent-loader exe).exe /SUBSYSTEM:CONSOLE,4.00 /OSVERSION:4.00 
 
-You will receive a warning (LNK42441) that it is an invalid subsystem number. Ignore it and close the command prompt.
+4.00 is for Windows 95. For a full list of all subsystem numbers click [here](http://pastebin.com/raw/Up67Tnj2). You will receive a warning (LNK42441) that it is an invalid subsystem number. Ignore it and close the command prompt.
 
 Now your Agent DLL and executable will be ready for Windows XP SP1 and below. 
